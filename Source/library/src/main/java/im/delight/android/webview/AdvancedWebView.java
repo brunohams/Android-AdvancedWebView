@@ -1298,6 +1298,7 @@ public class AdvancedWebView extends WebView {
 		}
 
 		final Request request = new Request(Uri.parse(fromUrl));
+		request.addRequestHeader("Cookie", CookieManager.getInstance().getCookie(fromUrl));
 		if (Build.VERSION.SDK_INT >= 11) {
 			request.allowScanningByMediaScanner();
 			request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
